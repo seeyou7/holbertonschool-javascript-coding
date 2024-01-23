@@ -2,8 +2,7 @@
 
 const request = require('request');
 
-const url = process.argv[2];
-
-request.get(url).on('response', function (response) {
+request(process.argv[2], (error, response) => {
+  if (error) console.log(error);
   console.log(`code: ${response.statusCode}`);
 });
